@@ -1,0 +1,16 @@
+{
+  "name": "projectjs",
+  "version": "1.0.0",
+  "description": "Avec la montée en puissance des formations en ligne et des besoins d’évaluation continue, votre entreprise souhaite développer une solution innovante pour digitaliser les processus d’examens et de quiz. C’est dans ce cadre qu’est née \"JSQuizMaster\", une application destinée aux établissements éducatifs, aux centres de formation, et aux entreprises souhaitant évaluer les compétences de leurs apprenants ou employés.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mysql": "^2.18.1"
+  }
+}

@@ -28,7 +28,7 @@ function connectWithRetry() {
 connectWithRetry();
 
 // Route d'accueil
-app.get('/', (req, res) => {
+app.get('/api/', (req, res) => {
     res.send('Hello World!');
 });
 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platforme</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <%- include('layouts/navbar') %>
+
+    <header class="bg-primary text-white text-center py-5">
+      <div class="container">
+        <h1>Bienvenue sur notre plateforme éducative</h1>
+        <p class="lead">Apprenez et enseignez avec des outils innovants</p>
+      </div>
+    </header>
+    <div class="row">
+      <div class="col-6">
+        <section class="py-5">
+          <div class="container text-center">
+            <h2 class="mb-4">Accès Formateur</h2>
+            <p>
+              En tant que formateur, vous pouvez créer des quiz, suivre les
+              progrès des étudiants, et plus encore.
+            </p>
+            <a href="#" class="btn btn-primary btn-lg"
+              >Accéder en tant que Formateur</a
+            >
+          </div>
+        </section>
+      </div>
+      <div class="col-6">
+        <section class="bg-light py-5">
+          <div class="container text-center">
+            <h2 class="mb-4">Accès Étudiant</h2>
+            <p>
+              En tant qu'étudiant, participez aux quiz et suivez votre
+              apprentissage.
+            </p>
+            <a href="#" class="btn btn-success btn-lg"
+              >Accéder en tant qu'Étudiant</a
+            >
+          </div>
+        </section>
+      </div>
+    </div>
+    
+    <%- include('layouts/footer') %>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

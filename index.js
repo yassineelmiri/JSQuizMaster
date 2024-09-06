@@ -27,9 +27,15 @@ function connectWithRetry() {
 // Connecter à MySQL
 connectWithRetry();
 
-// Route d'accueil
-app.get('/api/', (req, res) => {
-    res.send('Hello World!');
+//Endpoints
+app.get('/api/prof', (req, res) => {
+    db.query("SELECT * FROM prof", function (error, response) {
+        if (error) {
+            return console.log(error);
+        }
+        console.log(res.status(200).send(response));
+        res.status(200).send(response);
+    });
 });
 
 // Lancer le serveur

@@ -1,10 +1,14 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
-const profileController = require('./controllers/profileController');
 
 const app = express();
 const port = 3000;
+
+const ProfessorRouter = require('./routes/professorRoutes');
+
+app.use(ProfessorRouter);
+
 
 app.set('view engine', "ejs");
 app.set('views', path.join(__dirname, 'views'));
@@ -13,34 +17,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 
-
 app.get("/", (req, res) => {
   res.render("home");
 });
 
-app.get("/add_profile", (req, res) => {
-  res.render("profile/add_profile");
-});
-
-app.get("/Formateur", (req, res) => {
-  res.render("Formateur/index");
-});
-
-
-app.get("/Formateur/test", (req, res) => {
-  res.render("Formateur/test")
-});
-
-app.get("/Formateur/Qestion", (req, res) => {
-  res.render("Formateur/qestion")
-});
-
-app.get("/Formateur/Resulte", (req, res) => {
-  res.render("Formateur/resulte")
-});
-
-
-app.post("/add_profile", profileController.addProfile);
 
 app.listen(port, () => {
   console.log(`Server running on port : http://localhost:${port}/`);

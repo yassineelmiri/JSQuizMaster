@@ -6,7 +6,7 @@
       rel="stylesheet"
       href="../bootstrap-icons-1.10.5/font/bootstrap-icons.min.css"
     />
-    <link rel="shortcut icon" href="../img/yassine.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/ali.png" type="image/x-icon">
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,7 +16,7 @@
       content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
     />
     <meta name="generator" content="Hugo 0.112.5" />
-    <title>Edit page</title>
+    <title>Home page</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
 
@@ -128,7 +128,7 @@
       class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
     >
       <button
-        class="btn btn-bd-primary py-2 dropdown-toggle d-flex yassinegn-items-center"
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
         id="bd-theme"
         type="button"
         aria-expanded="false"
@@ -147,7 +147,7 @@
         <li>
           <button
             type="button"
-            class="dropdown-item d-flex yassinegn-items-center"
+            class="dropdown-item d-flex align-items-center"
             data-bs-theme-value="light"
             aria-pressed="false"
           >
@@ -163,7 +163,7 @@
         <li>
           <button
             type="button"
-            class="dropdown-item d-flex yassinegn-items-center"
+            class="dropdown-item d-flex align-items-center"
             data-bs-theme-value="dark"
             aria-pressed="false"
           >
@@ -179,7 +179,7 @@
         <li>
           <button
             type="button"
-            class="dropdown-item d-flex yassinegn-items-center active"
+            class="dropdown-item d-flex align-items-center active"
             data-bs-theme-value="auto"
             aria-pressed="true"
           >
@@ -213,68 +213,68 @@
 
     <main class="d-flex flex-nowrap">
       <div
-        id="sidebarId"
-        class="position-relative d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar"
+      id="sidebarId"
+      class="position-relative d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar"
+    >
+      <span style="right: 10px; top: 2px" class="position-absolute">
+        <button class="btn" onclick="toggleSidebar()">
+          <i class="bi bi-x-circle"></i>
+        </button>
+      </span>
+
+      <a
+        href="/"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
       >
-        <span style="right: 10px; top: 2px" class="position-absolute">
-          <button class="btn" onclick="toggleSidebar()">
-            <i class="bi bi-x-circle"></i>
-          </button>
-        </span>
-
-        <a
-          href="/"
-          class="d-flex yassinegn-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
-        >
-          <i class="bi bi-lightning-charge"></i>
-          <span class="fs-4 sidebar-text">Sidebar</span>
-        </a>
-        <hr />
-        <ul class="nav nav-pills flex-column mb-auto">
-          <li class="nav-item">
-            <a href="/" class="nav-link  text-white" aria-current="page">
-              <svg class="bi pe-none me-2" width="16" height="16">
-                <use xlink:href="#home" />
-              </svg>
-              <span class="sidebar-text"> Home </span>
-            </a>
-          </li>
-
-          <li>
-            <a href="./user/add.html" class="nav-link text-white">
-              <svg class="bi pe-none me-2" width="16" height="16">
-                <use xlink:href="#people-circle" />
-              </svg>
-              <span class="sidebar-text"> Add Customers </span>
-            </a>
-          </li>
-        </ul>
-        <hr />
-        <div class="dropdown">
-          <a
-            href="#"
-            class="d-flex yassinegn-items-center text-white text-decoration-none dropdown-toggle"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <img
-              src="./img/me.JPG"
-              alt=""
-              width="32"
-              height="32"
-              class="rounded-circle me-2"
-            />
-            <strong class="sidebar-text">yassine miri </strong>
+        <i class="bi bi-lightning-charge"></i>
+        <span class="fs-4 sidebar-text">Sidebar</span>
+      </a>
+      <hr />
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="/" class="nav-link text-white" aria-current="page">
+            <svg class="bi pe-none me-2" width="16" height="16">
+              <use xlink:href="#home" />
+            </svg>
+            <span class="sidebar-text"> Home </span>
           </a>
-          <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
-          </ul>
-        </div>
+        </li>
+
+        <li>
+          <a href="./Formateur/test" class="nav-link text-white active">
+            <svg class="bi pe-none me-2" width="16" height="16">
+              <use xlink:href="#people-circle" />
+            </svg>
+            <span class="sidebar-text"> Add Test </span>
+          </a>
+        </li>
+      </ul>
+      <hr />
+      <div class="dropdown">
+        <a
+          href="#"
+          class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="./img/me.JPG"
+            alt=""
+            width="32"
+            height="32"
+            class="rounded-circle me-2"
+          />
+          <strong class="sidebar-text">Ali Hassan</strong>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+          <li><a class="dropdown-item" href="#">New project...</a></li>
+          <li><a class="dropdown-item" href="#">Settings</a></li>
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <li><a class="dropdown-item" href="#">Sign out</a></li>
+        </ul>
       </div>
+    </div>
 
       <div class="b-example-divider b-example-vr"></div>
 
@@ -283,10 +283,6 @@
           <div
             class="container-fluid justify-content-center justify-content-md-between"
           >
-            <a class="navbar-brand fw-medium fs-3 mb-1 mb-md-0"
-              >Quiz<sup>js</sup>Master</a
-            >
-
             <form class="d-flex" role="search">
               <input
                 class="form-control me-2"
@@ -301,75 +297,55 @@
           </div>
         </nav>
 
-        <nav
-          style="width: 88%"
-          class="px-2 mt-4 d-flex flex-wrap justify-content-between"
-          aria-label="breadcrumb"
-        >
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">
-              yassine miri 
-            </li>
-          </ol>
-
-          <p class=" ">
-            <span class="fw-medium fs-6">Id :</span> 6487021520bcf1af6319484c
-          </p>
-        </nav>
-
-        <table
-          style="width: 88%"
-          class="ms-1 table mt-5 table-striped table-bordered"
-        >
-          <thead>
-            <tr>
-              <th scope="col">First Name</th>
-              <th class="fw-normal" scope="col">yassine</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Last Name</th>
-              <td>miri </td>
-            </tr>
-
-            <tr>
-              <th scope="row">Telephone</th>
-              <td>Test1</td>
-            </tr>
-
-            <tr>
-              <th scope="row">Email</th>
-              <td>yassine7assan@gmail.com</td>
-            </tr>
-
-            <tr>
-              <th scope="row">Gender</th>
-              <td>Test3</td>
-            </tr>
-
-            <tr>
-              <th scope="row">Age</th>
-              <td>Test4</td>
-            </tr>
-
-            <tr>
-              <th scope="row">Country</th>
-              <td>Test5</td>
-            </tr>
-
-            <tr>
-              <th scope="row">Created on</th>
-              <td>Test6</td>
-            </tr>
-
-            <tr>
-              <th scope="row">Last Update</th>
-              <td>Test7</td>
-            </tr>
-          </tbody>
-        </table>
+        <form action="/submit-test" method="POST" class="mx-0 row gx-3 gy-4 mt-3">
+          <div class="col-md-6">
+            <label for="inputName" class="form-label">Name:</label>
+            <input
+              placeholder="Test Name"
+              type="text"
+              class="form-control"
+              id="inputName"
+              name="Name"
+              required
+            />
+          </div>
+          
+          <div class="col-md-6">
+            <label for="inputDate" class="form-label">Test Date:</label>
+            <input
+              type="date"
+              class="form-control"
+              id="inputDate"
+              name="testDate"
+            />
+          </div>
+        
+          <div class="col-md-12">
+            <label for="inputDescription" class="form-label">Description:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputDescription"
+              name="Description"
+            />
+          </div>
+        
+          <div class="col-md-6">
+            <label for="inputProfessor" class="form-label">Professor ID:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="inputProfessor"
+              name="professor_id"
+              required
+            />
+          </div>
+        
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+        
       </section>
     </main>
     <script src="../js/bootstrap.bundle.min.js"></script>

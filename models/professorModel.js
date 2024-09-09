@@ -33,6 +33,20 @@ module.exports = {
             .catch((err) => {
                 console.error('Error inserting professor:', err);
             });
-    }
+    },
+    updateProfessor: (id, data) => {
+        return db
+            .promise()
+            .query(
+                `UPDATE Professor  
+                SET firstName = ?, lastName = ?, email = ?, birthDate = ?, Speciality = ?  
+                WHERE id = ${id};`,
+                [data.firstName, data.lastName, data.email, data.birthDate, data.Speciality]
+            )
+            .then(([result]) => result)
+            .catch((err) => {
+                console.error('Error inserting professor:', err);
+            });
+    },
 
 };

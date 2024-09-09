@@ -1,9 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const TestController = require('../controllers/TestController'); // Assurez-vous que le chemin est correct
+const Profile = require('../models/profileModel'); // Add this line
+const TestController = require('../controllers/TestController');
 
-router.get("/Formateur", (req, res) => {
-  res.render("Formateur/index");
+router.get('/Formateur', (req, res) => {
+    Profile.getAll((err, results) => {
+      if (err) {
+        console.error("Error fetching profiles:", err);
+        res.status(500).send(`Internal Server Error: ${err.message}`);
+      } else {
+        res.render('Formateur/index', { professors: results });
+      }
+    });
 });
 
 router.get("/Formateur/test", (req, res) => {

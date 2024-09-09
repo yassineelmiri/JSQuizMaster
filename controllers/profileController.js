@@ -1,13 +1,14 @@
 const Profile = require('../models/profileModel');
 
 exports.addProfile = (req, res) => {
-  const { firstName, lastName, email, dob } = req.body;
+  const { firstName, lastName, email, dob, speciality } = req.body;
 
   const newProfile = {
-    firstName: firstName,
-    lastName: lastName,
-    email: email,
-    dob: dob
+    firstName,
+    lastName,
+    email,
+    dob,
+    speciality
   };
 
   Profile.create(newProfile, (err, result) => {
@@ -15,7 +16,18 @@ exports.addProfile = (req, res) => {
       console.error("Error inserting profile:", err);
       res.status(500).send(`Internal Server Error: ${err.message}`);
     } else {
-      res.redirect("/add_profile");
+      res.redirect("/profiles");
+    }
+  });
+};
+
+exports.getProfiles = (req, res) => {
+  Profile.getAll((err, results) => {
+    if (err) {
+      console.error("Error fetching profiles:", err);
+      res.status(500).send(`Internal Server Error: ${err.message}`);
+    } else {
+      res.render("Formateur/index", { professors: results });
     }
   });
 };

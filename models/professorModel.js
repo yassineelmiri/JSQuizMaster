@@ -45,8 +45,7 @@ module.exports = {
             )
             .then(([result]) => result)
             .catch((err) => {
-                console.error('Error inserting professor:', err);
+                console.error('Error updating professor:', err);
             });
-    },
-
+    }
 };

@@ -10,6 +10,8 @@ COPY package*.json ./
 # Installer les dépendances
 RUN npm install
 
+RUN npm install -g nodemon
+
 # Copier le reste de l'application
 COPY . .
 
@@ -17,4 +19,4 @@ COPY . .
 EXPOSE 3000
 
 # Lancer l'application
-CMD ["node", "index.js"]
+CMD ["nodemon", "index.js"]

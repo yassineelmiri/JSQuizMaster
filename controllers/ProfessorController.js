@@ -37,12 +37,22 @@ module.exports = {
         const id = req.params.id;
         const data = req.body;
         try {
-            const result =await professor.updateProfessor(id, data);
+            const result = await professor.updateProfessor(id, data);
             res.status(200).send(result);
         } catch (error) {
             console.error("Error:", error);
             res.status(500).json({ message: `An error occurred: ${error.message}` });
         }
     },
+    deleteProfessor: async (req, res) => {
+        const id = req.params.id;
+        try {
+            const result = await professor.deleteProfessor(id);
+            res.status(200).send(result);
+        } catch (error) {
+            console.error("Error:", error);
+            res.status(500).json({ message: `An error occurred: ${error.message}` });
+        }
+    }
 
 };

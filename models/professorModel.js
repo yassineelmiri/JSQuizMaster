@@ -47,5 +47,14 @@ module.exports = {
             .catch((err) => {
                 console.error('Error updating professor:', err);
             });
+    },
+    deleteProfessor: (id) => {
+        return db
+            .promise()
+            .query(`DELETE FROM Professor WHERE id = ${id}`)
+            .then(([result]) => result)
+            .catch((err) => {
+                console.error('Error deleting professor:', err);
+            });
     }
 };

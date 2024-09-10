@@ -5,6 +5,12 @@ const bodyParser = require("body-parser");
 const indexRoutes = require('./routes/index');
 const profileRoutes = require('./routes/profileRoutes');
 const formateurRoutes = require('./routes/formateurRoutes');
+const authenticationRoute = require('./routes/authenticationRoute.js');
+const session = require('express-session');
+const morgan = require('morgan');
+
+const setUserMiddleware = require('./middlewares/setUser');
+const ejsLayouts = require('express-ejs-layouts'); 
 
 const app = express();
 const port = 3000;
@@ -12,11 +18,24 @@ const port = 3000;
 app.set('view engine', "ejs");
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(session({
+    secret: 'jhgaehfzjQKZKNSLBRYIAZ74GBQN',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }  
+}));
+app.use(morgan('dev'));
+
+app.use(setUserMiddleware);
+
+app.use(ejsLayouts);
 
 app.use('/', indexRoutes);
 app.use('/', profileRoutes);
 app.use('/', formateurRoutes);
+app.use('/', authenticationRoute);
 
 app.listen(port, () => {
   console.log(`Server running on port : http://localhost:${port}/`);

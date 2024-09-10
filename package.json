@@ -15,8 +15,10 @@
     "connect-livereload": "^0.6.1",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "fetch": "^1.1.0",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.0",
     "livereload": "^0.9.3",
+    "morgan": "^1.10.0",
     "mysql2": "^3.11.0"
   },
   "devDependencies": {

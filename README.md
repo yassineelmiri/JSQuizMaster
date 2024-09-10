@@ -1,52 +1,87 @@
-Avec la montée en puissance des formations en ligne et des besoins d’évaluation continue, votre entreprise souhaite développer une solution innovante pour digitaliser les processus d’examens et de quiz. C’est dans ce cadre qu’est née "JSQuizMaster", une application destinée aux établissements éducatifs, aux centres de formation, et aux entreprises souhaitant évaluer les compétences de leurs apprenants ou employés.
+# JSQuizMaster
 
-​
+JSQuizMaster est une application innovante destinée à digitaliser les processus d'examens et de quiz pour les établissements éducatifs, les centres de formation et les entreprises souhaitant évaluer les compétences de leurs apprenants ou employés.
 
-✍ Contraintes et Exigences Fonctionnelles:
+## Contexte du projet
 
-👋 Un test(Examen) est proposé/rédigé par un formateur.
+Avec l'essor des formations en ligne et des évaluations continues, JSQuizMaster vise à faciliter la création, la gestion et le suivi des examens et des quiz pour les formateurs et les administrateurs. L'application permet aux formateurs de créer des tests, de les planifier, et de suivre les performances des étudiants en temps réel.
 
-👋 Un test concerne plusieurs sujets et sous-sujets.
+## Fonctionnalités clés
 
-👋 Une question est attachée à un sujet unique.
+- **Création et gestion des tests/examens** : Les formateurs peuvent créer des tests contenant plusieurs questions réparties sur divers sujets et sous-sujets.
+- **Gestion des niveaux** : Chaque question est associée à un niveau (débutant, intermédiaire, avancé) avec un score défini.
+- **Types de réponses multiples** : Les questions peuvent avoir des réponses correctes et incorrectes, permettant différents types de quiz.
+- **Programmation des tests** : Les tests peuvent être programmés à des dates et heures spécifiques pour différents étudiants.
+- **Gestion des tentatives** : Les étudiants peuvent passer le même test plusieurs fois après demande au formateur.
+- **Enregistrement des résultats** : Les résultats et les réponses des étudiants sont enregistrés pour chaque tentative, avec un suivi des scores obtenus.
 
-👋 Une question appartienne à un niveau.
+## Contraintes fonctionnelles
 
-👋 Une question à plusieurs réponses(Correctes et fausses).
+- Chaque test peut inclure plusieurs sujets et sous-sujets.
+- Une question appartient à un sujet unique et est caractérisée par un texte, des images, des figures, des vidéos, ou des sons.
+- Chaque test a un score de réussite et des droits configurables pour visualiser les réponses et les résultats.
+- Les étudiants et formateurs sont caractérisés par des informations personnelles (nom, prénom, adresse, etc.).
+- Un système de suivi des tentatives de tests avec le score et les résultats est implémenté.
 
-👋 Un étudiant pour passer le même test plusieurs fois après demande au formateur en précisant la raison de la demande.
+## Contraintes techniques
 
-👋 un test doit être programmé entre deux dates/heures.
+- **Node.js & Express.js** : L'application utilise Node.js pour une performance optimale et Express.js pour la gestion des requêtes HTTP.
+- **Architecture MVC** : Le modèle MVC est utilisé pour structurer le code et séparer les responsabilités (Modèle, Vue, Contrôleur).
+- **SQL natif** : Les requêtes SQL sont utilisées pour optimiser les transactions et manipulations des données.
+- **Gestion des erreurs** : Un mécanisme centralisé de gestion des erreurs est implémenté pour capturer et traiter les exceptions.
+- **Sécurité des données** : Validation et assainissement des entrées pour protéger contre les attaques courantes (injections SQL, XSS, etc.).
+- **Docker** : L'application est dockerisée pour faciliter le déploiement et assurer la cohérence entre les environnements de développement, test et production. Des fichiers Docker sont fournis pour la configuration.
 
-👋Le formateur peut programmer les tests pour les étudiants à des dates/heures différentes.
+## Prérequis
 
-👋 Le système doit enregistrer toutes les réponses à toutes les questions dans tous les tests pour tous les étudiants en précisant le nombre de points obtenus pour chaque question.
+- **Node.js** v14+ (ou version compatible)
+- **Docker** v20+ pour la conteneurisation
+- **MySQL** pour la base de données
+- **phpMyAdmin** pour la gestion de la base de données
 
-👋Un test est caractérisé par: score de réussite, droit de visualiser les réponses, droit de voir le résultat à la fin du test, le nombre de chances, remarques et consignes.
+## Installation
 
-👋 Une question est caractérisés par: nombre de réponses, nombre de réponses correctes, texte de la question, images, figures, sons, vidéos, type(une ou plusieurs réponses), le nombre de points.
+1. Clonez le projet depuis GitHub :
 
-👋 Un niveau est caractérisé par: description , nombre de points maximum et minimum.
+```bash
+git clone https://github.com/ahmed-hounati/JSQuizMaster.git
+```
 
-👋 Une réponse est caractérisée par le texte de réponse.
+2. Accédez au répertoire du projet :
 
-👋 Une réponse peut être correcte pour une question et fausse pour une autre question.
+```bash
+cd JSQuizMaster
+```
 
-👋 Un sujet est caractérisé par un intitulé.
-👋 Un étudiant est caractérisé par un nom, prénom, date de naissance, adresse, et une date d’inscription.
-👋 Un formateur est aussi caractérisé par un nom, prénom, date de naissance, adresse et une spécialité.
-👋 Le système doit enregistrer pour un passage d’un test les informations suivantes: score obtenu, le numéro de la tentative, résultat final.
+3. Installez les dépendances :
 
-​
+```bash
+npm install
+```
 
-​
+4. Lancez l'application avec Docker :
 
-​
+```bash
+docker-compose up --build
+```
 
-🚨Contraintes et Exigences Techniques :
+5. Accédez à l'application à l'adresse suivante : `http://localhost:3000`.
 
-◼ L'application doit être développée en utilisant Node.js et Express.js pour assurer une performance optimale et une gestion efficace des requêtes HTTP.
-◼ L'architecture de l'application doit suivre le modèle MVC (Modèle-Vue-Contrôleur) pour une séparation claire des responsabilités et une meilleure organisation du code.
-◼ Les opérations de manipulation des données doivent être implémentées en utilisant des "requêtes SQL natives" pour optimiser les performances des transactions complexes.
-◼ Le système doit intégrer un mécanisme de gestion des erreurs robuste pour capturer et traiter les exceptions de manière centralisée.
-◼ Les données utilisateur doivent être protégées via des meilleures pratiques de sécurité, incluant la validation et l’assainissement des entrées pour prévenir les attaques. -◼ L'application doit être dockerisée pour assurer une déploiement facile et une cohérence entre les environnements de développement, de test et de production. Les Dockerfiles doivent être créés pour définir les images et les configurations nécessaires.
+## Utilisation
+
+1. Accédez à phpMyAdmin pour gérer la base de données à l'adresse : `http://localhost:8080`.
+2. Configurez les paramètres de connexion dans le fichier `.env` pour correspondre à vos besoins.
+3. Utilisez l'interface pour créer des tests, programmer des examens et suivre les performances des étudiants.
+
+## Architecture du projet
+
+L'application suit l'architecture MVC :
+- **Modèle** : Gère l'accès et la manipulation des données.
+- **Vue** : Affiche les pages HTML et les résultats des requêtes utilisateur.
+- **Contrôleur** : Gère les requêtes HTTP et fait le lien entre le Modèle et la Vue.
+
+## Contributeurs
+
+- **Yassine** - Développeur Full Stack
+- **Ahmed** - Développeur  Full Stack
+- **Khalid** - Développeur  Full Stack

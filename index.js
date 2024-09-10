@@ -6,6 +6,8 @@ const port = 3000;
 
 const ProfessorRouter = require('./routes/professorRoutes');
 const testRouter = require('./routes/testRoutes');
+const subjectRouter = require('./routes/subjectRoutes');
+const levelRouter = require('./routes/levelRoutes');
 
 
 app.use(express.json())
@@ -16,6 +18,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/", ProfessorRouter);
 app.use("/", testRouter);
+app.use("/", subjectRouter);
+app.use("/", levelRouter);
 
 
 

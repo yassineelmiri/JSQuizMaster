@@ -6,6 +6,7 @@ const indexRoutes = require('./routes/index');
 const profileRoutes = require('./routes/profileRoutes');
 const formateurRoutes = require('./routes/formateurRoutes');
 const authenticationRoute = require('./routes/authenticationRoute.js');
+const classesRoutes = require('./routes/classesRoutes.js');
 const session = require('express-session');
 const morgan = require('morgan');
 
@@ -36,6 +37,7 @@ app.use('/', indexRoutes);
 app.use('/', profileRoutes);
 app.use('/', formateurRoutes);
 app.use('/', authenticationRoute);
+app.use('/', classesRoutes);
 
 app.listen(port, () => {
   console.log(`Server running on port : http://localhost:${port}/`);

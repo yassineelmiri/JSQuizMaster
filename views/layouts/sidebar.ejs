@@ -1,6 +1,9 @@
 <div
         id="sidebarId"
         class="position-relative d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar"
+        style="width:100%;
+height:100vh;
+  transition: 0.3s;"
       >
         <span style="right: 10px; top: 2px" class="position-absolute">
           <button class="btn" onclick="toggleSidebar()">
@@ -25,7 +28,29 @@
               <span class="sidebar-text">Home </span>
             </a>
           </li>
+            <% if(isFormateur){ %>
+
           <li>
+            <a href="/classe" class="nav-link text-white">
+             <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-mortarboard-fill"
+                    viewBox="0 0 16 16"
+                    >
+                    <path
+                        d="M8 0c-.7 0-1.4.1-2 .3L0 3l6 2.5V8L.5 9.9c-.2.1-.3.3-.3.5s.1.4.3.5L6 14v1l1 .5 1-.5v-1l5.5-3.1c.2-.1.3-.3.3-.5s-.1-.4-.3-.5L10 8V5.5L16 3l-6-2.5C9.4.1 8.7 0 8 0zm2 5.9v.9l-2 1.1L6 6.8v-.9l2 1.1 2-1.1z"
+                    />
+                    </svg>
+
+              <span class="sidebar-text"> Classes </span>
+            </a>
+          </li>
+            <li>
+
+            </li>
             <a href="./Formateur/test" class="nav-link text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -59,6 +84,8 @@
               <span class="sidebar-text"> Ajouter Qestion </span>
             </a>
           </li>
+            <% } %>
+
           <li>
             <a href="./Formateur/resulte" class="nav-link text-white">
               <svg

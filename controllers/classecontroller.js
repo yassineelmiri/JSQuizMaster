@@ -3,7 +3,6 @@ const Classe =require('../models/classemodel.js')
 module.exports = {
     getclasses: (req, res) => {
                 const prof_id = req.session.user.id;
-
         Classe.getclasses(prof_id)
             .then((classes) => {
                 res.render('Formateur/class',{classes,prof_id});
@@ -18,7 +17,6 @@ module.exports = {
         try {
             Classe.createclasse({ name, prof_id });
             res.redirect('/classe');
-
         }catch (error) {
         res.status(500).send(error.message);
     }

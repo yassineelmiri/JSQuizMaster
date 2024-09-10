@@ -25,7 +25,42 @@ module.exports = {
                 [name, prof_id]
          )
              
-            .then(([result]) => result)
+            .catch((err) => {
+                console.error('Error inserting formateur:', err);
+            });
+    },
+    update: async (data) => {
+        const { name, classe_id } = data;
+         return await db
+            .promise()
+            .query(
+                `UPDATE Class set name=? WHERE id=?`,
+                   
+                [name, classe_id]
+         ) .catch((err) => {
+                console.error('Error inserting formateur:', err);
+            });
+    },
+    delete: async (id) => {
+         return await db
+            .promise()
+            .query(
+                `DELETE FROM Class  WHERE id=?`,
+                   
+                [id]
+         ) .catch((err) => {
+                console.error('Error inserting formateur:', err);
+            });
+    },
+    classeDeatails: async (id)=>{
+        return await db
+            .promise()
+            .query(
+                `SELECT * FROM Class  WHERE id=?`,
+                   
+                [id]
+        )
+           .then((result) => result[0])
             .catch((err) => {
                 console.error('Error inserting formateur:', err);
             });

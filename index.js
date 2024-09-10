@@ -39,6 +39,7 @@ app.use(setUserMiddleware);
 
 app.use(ejsLayouts);
 
+app.use("/", indexRoutes);
 app.use("/", ProfessorRouter);
 app.use("/", testRouter);
 app.use("/", subjectRouter);

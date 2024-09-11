@@ -1,5 +1,4 @@
 const db = require('../db');
-
 module.exports = {
     getAllProfessors: () => {
         const result = db
@@ -11,50 +10,39 @@ module.exports = {
             });
         return result;
     },
-    getOneProfessor: (id) => {
-        const result = db
-            .promise()
-            .query(`SELECT * FROM Professor where id = ${id}`)
-            .then(([result]) => result)
-            .catch((err) => {
-                console.error("Error fetching professors:", err);
-            });
-        return result;
-    },
-    addProfessor: (data) => {
+     addProfessor: (formateurData) => {
+        const { firstName, lastName, email, password, birthDate, adresse, Speciality } = formateurData;
         return db
             .promise()
             .query(
-                `INSERT INTO Professor (firstName, lastName, email, birthDate, Speciality)
-                    VALUES (?, ?, ?, ?, ?);`,
-                [data.firstName, data.lastName, data.email, data.birthDate, data.Speciality]
+                `INSERT INTO Professor (firstName, lastName, email, password, adresse, birthDate, created_at, Speciality)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?);`,
+                [firstName, lastName, email, password, birthDate, adresse,new Date(), Speciality ]
             )
             .then(([result]) => result)
             .catch((err) => {
-                console.error('Error inserting professor:', err);
+                console.error('Error inserting formateur:', err);
             });
     },
-    updateProfessor: (id, data) => {
-        return db
-            .promise()
-            .query(
-                `UPDATE Professor  
-                SET firstName = ?, lastName = ?, email = ?, birthDate = ?, Speciality = ?  
-                WHERE id = ${id};`,
-                [data.firstName, data.lastName, data.email, data.birthDate, data.Speciality]
-            )
-            .then(([result]) => result)
-            .catch((err) => {
-                console.error('Error updating professor:', err);
-            });
-    },
-    deleteProfessor: (id) => {
-        return db
-            .promise()
-            .query(`DELETE FROM Professor WHERE id = ${id}`)
-            .then(([result]) => result)
-            .catch((err) => {
-                console.error('Error deleting professor:', err);
-            });
+      checkcridencials:async(formateurData)=> {
+    const { email, password } = formateurData;
+    try {
+        const [result] = await db.promise().query(
+            'SELECT * FROM Professor WHERE email = ? AND password = ?',
+            [email, password]
+        );
+
+        return result.length > 0 ? result[0] : null;
+
+    } catch (error) {
+        console.error('Error checking credentials:', error);
+        throw error;
     }
+}
+
+
+
+
+
+
 };

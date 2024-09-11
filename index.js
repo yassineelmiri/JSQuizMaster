@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 
 const indexRoutes = require('./routes/index');
 const profileRoutes = require('./routes/profileRoutes');
-const formateurRoutes = require('./routes/formateurRoutes');
+const studentRoutes = require('./routes/studentRoutes.js');
 const authenticationRoute = require('./routes/authenticationRoute.js');
 const classesRoutes = require('./routes/classesRoutes.js');
 const ProfessorRouter = require('./routes/professorRoutes.js');
@@ -12,6 +12,7 @@ const testRouter = require('./routes/testRoutes.js');
 const subjectRouter = require('./routes/subjectRoutes.js');
 const levelRouter = require('./routes/levelRoutes.js');
 const mediaRoutes = require('./routes/mediaRoute.js');
+const questionRoutes = require('./routes/questionRoute.js');
 const questionRoutes = require('./routes/questionRoute.js');
 
 const session = require('express-session');
@@ -40,6 +41,7 @@ app.use(setUserMiddleware);
 
 app.use(ejsLayouts);
 
+app.use("/", indexRoutes);
 app.use("/", ProfessorRouter);
 app.use("/", testRouter);
 app.use("/", subjectRouter);
@@ -48,6 +50,7 @@ app.use('/', authenticationRoute);
 app.use('/', classesRoutes);
 app.use('/', mediaRoutes);
 app.use('/', questionRoutes);
+app.use('/', studentRoutes);
 
 app.listen(port, () => {
   console.log(`Server running on port : http://localhost:${port}/`);

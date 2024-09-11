@@ -5,4 +5,7 @@ const studentcontroller = require('../controllers/studentcontroller');
 const checkRole = require('../middlewares/CheckRole');
 
 
-router.get('/students',checkRole('Formateur'),studentcontroller.getStudents)
+router.get('/students', checkRole('Formateur'), studentcontroller.getStudents);
+
+
+module.exports = router;

@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 
 const indexRoutes = require('./routes/index');
 const profileRoutes = require('./routes/profileRoutes');
-const formateurRoutes = require('./routes/formateurRoutes');
+const studentRoutes = require('./routes/studentRoutes.js');
 const authenticationRoute = require('./routes/authenticationRoute.js');
 const classesRoutes = require('./routes/classesRoutes.js');
 const ProfessorRouter = require('./routes/professorRoutes.js');
@@ -47,6 +47,7 @@ app.use("/", levelRouter);
 app.use('/', authenticationRoute);
 app.use('/', classesRoutes);
 app.use('/', mediaRoutes);
+app.use('/', studentRoutes);
 
 app.listen(port, () => {
   console.log(`Server running on port : http://localhost:${port}/`);

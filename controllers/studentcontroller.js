@@ -1,4 +1,5 @@
 const student = require('../models/studentModel');
+const professorModel = require('../models/professorModel.js');
 
 
 
@@ -7,8 +8,10 @@ const student = require('../models/studentModel');
 module.exports = {
     
     getStudents: async (req, res) => {
-
-        student.getStudents()
+        const classe = await professorModel.getclasse(req.session.user.id);
+        console.log(classe);
+        
+        student.getStudents(classe)
             .then((students) => {
                 res.render('Etudiant/index', { students});
             })

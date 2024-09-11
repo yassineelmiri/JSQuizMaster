@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Profile = require('../models/profileModel'); // Add this line
+const Profile = require('../models/profileModel'); 
 const TestController = require('../controllers/TestController');
 
 // router.get('/Formateur', (req, res) => {
@@ -14,9 +14,7 @@ const TestController = require('../controllers/TestController');
 //     });
 // });
 
-// router.get("/Formateur/test", (req, res) => {
-//   res.render("Formateur/test");
-// });
+router.get("/Formateur/test", (req, res) => {res.render("Formateur/test");});
 
 // router.get("/Formateur/Qestion", (req, res) => {
 //   res.render("Formateur/qestion");

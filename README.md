@@ -6,6 +6,13 @@ JSQuizMaster est une application innovante destinée à digitaliser les processu
 
 Avec l'essor des formations en ligne et des évaluations continues, JSQuizMaster vise à faciliter la création, la gestion et le suivi des examens et des quiz pour les formateurs et les administrateurs. L'application permet aux formateurs de créer des tests, de les planifier, et de suivre les performances des étudiants en temps réel.
 
+## UML
+
+![JSQuizMaster-Page-11](https://github.com/user-attachments/assets/324d3aba-4d54-4bbf-a465-096e3da3d789)
+
+![JSQuizMaster-Page-22](https://github.com/user-attachments/assets/0d199c69-67d7-490f-967a-2b6057f4a815)
+
+
 ## Fonctionnalités clés
 
 - **Création et gestion des tests/examens** : Les formateurs peuvent créer des tests contenant plusieurs questions réparties sur divers sujets et sous-sujets.

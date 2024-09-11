@@ -1,0 +1,101 @@
+
+<ul>
+ 
+    <li><h1>students List</h1></li> 
+  
+</ul>
+<div class="">
+     <div>
+       
+        
+        
+                <div class="d-flex justify-content-center mt-4">
+                    <button type="submit" class="border-0 p-1 rounded-4 w-25 bg-primary text-white font-weight-bold fs-4"><i class="fa fa-creative-commons ">Create</i></button>
+                </div>
+       
+    </div>
+
+
+</div>
+ <table
+          style="width: 99%"
+          class="text-center mx-auto table mt-5 table-striped table-bordered"
+        >
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">student firstName</th>              
+              <th scope="col">student lastName</th>              
+              <th scope="col">student email</th>              
+              <th scope="col">student birth</th>              
+              <th scope="col">craated at</th>              
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+ <% students.forEach(function(student) { %>
+            <tr>
+              <th scope="row">1</th>
+          
+              <td> 
+                 <%= student.firstName %>
+             </td>
+                <td> 
+                 <%= student.lastName %>
+             </td>
+             
+              <td> 
+                 <%= student.email %>
+             </td>
+                <td> 
+                <%= new Date(student.birthDate).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+
+             </td>
+                <td> 
+<%= new Date(student.RegistrationDate).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+             </td>
+              
+              
+              <td class="d-flex gap-2 justify-content-center"> 
+                <div>
+                 <button
+                 type="submit"
+                  data-bs-toggle="tooltip"
+                  data-bs-title="Edit user"
+                  data-bs-placement="top"
+                  class="btn btn-primary btn-sm"
+                
+                >
+                  <i class="bi bi-pencil"></i>
+                </button>
+                              
+                </div>
+             <div>
+               <a
+                  data-bs-toggle="tooltip"
+                  data-bs-title="View details"
+                  data-bs-placement="top"
+                  class="btn btn-primary btn-sm"
+                  href="/classe-deatails?id=<%= student.id %>"
+                  ><i class="bi bi-eye"></i
+                ></a>
+                </div>
+                  <div></div>
+                <form action="/delete-classe" method="post">
+                <input type="text" class="form-control " placeholder="classe name" hidden value="<%= student.id %>" name="classe_id"  required>
+
+                <button
+                type="submit"
+                  data-bs-toggle="tooltip"
+                  data-bs-title="Delete user"
+                  data-bs-placement="top"
+                  class="btn btn-danger btn-sm"
+                >
+                  <i class="bi bi-trash"></i>
+                </button>
+                </form>
+              </td>
+            </tr>
+            <% }) %>
+                </tbody>
+        </table>

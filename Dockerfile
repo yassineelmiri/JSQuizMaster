@@ -1,5 +1,5 @@
 # Dockerfile
-FROM node:14
+FROM node:20
 
 # Créer un répertoire de travail dans le conteneur
 WORKDIR /app
@@ -8,9 +8,11 @@ WORKDIR /app
 COPY package*.json ./
 
 # Installer les dépendances
+
+RUN npm update
+
 RUN npm install
 
-RUN npm install -g nodemon
 
 # Copier le reste de l'application
 COPY . .
@@ -19,5 +21,5 @@ COPY . .
 EXPOSE 3000
 
 # Lancer l'application
-CMD ["nodemon", "index.js"]
+CMD ["npm", "start"]
 

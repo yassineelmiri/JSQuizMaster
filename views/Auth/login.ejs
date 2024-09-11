@@ -102,13 +102,13 @@
 
             const password = document.getElementById('password');
             const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
-            if (!passwordRegex.test(password.value)) {
-                password.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                password.classList.remove('is-invalid');
-                password.classList.add('is-valid');
-            }
+            // if (!passwordRegex.test(password.value)) {
+            //     password.classList.add('is-invalid');
+            //     isValid = false;
+            // } else {
+            //     password.classList.remove('is-invalid');
+            //     password.classList.add('is-valid');
+            // }
 
             if (!isValid) {
                 event.preventDefault();

@@ -25,7 +25,7 @@ module.exports = {
         return db
             .promise()
             .query(
-                `INSERT INTO Question (Question)
+                `INSERT INTO Question (Text, test_id, level_id, media_id, subject_id)
                     VALUES (?, ?, ?, ?, ?);`,
                 [data.Text, data.test_id, data.level_id, data.media_id, data.subject_id]
             )

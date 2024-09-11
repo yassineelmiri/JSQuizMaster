@@ -13,6 +13,9 @@ module.exports = {
     },
     getOneTest: (req, res) => {
         const id = req.params.id;
+        if (!id) {
+            console.log("there is no test selected");
+        }
         test.getOneTest(id)
             .then((result) => {
                 res.status(200).send(result);
@@ -24,6 +27,9 @@ module.exports = {
     },
     addTest: async (req, res) => {
         const data = req.body;
+        if (!data.Name, !data.testDate, !data.Description, !data.professor_id) {
+            console.log("please complete the inputs");
+        }
         try {
             const result = await test.addTest(data);
             res.status(201).send(result);
@@ -35,6 +41,12 @@ module.exports = {
     updateTest: async (req, res) => {
         const id = req.params.id;
         const data = req.body;
+        if (!id) {
+            console.log("there is no subject selected");
+        }
+        if (!data.Name, !data.testDate, !data.Description, !data.professor_id) {
+            console.log("please complete the inputs");
+        }
         try {
             const result = await test.updateTest(id, data);
             res.status(200).send(result);
@@ -45,6 +57,9 @@ module.exports = {
     },
     deleteTest: async (req, res) => {
         const id = req.params.id;
+        if (!id) {
+            console.log("there is no subject selected");
+        }
         try {
             const result = await test.deleteTest(id);
             res.status(200).send(result);

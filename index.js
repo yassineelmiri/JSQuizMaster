@@ -48,6 +48,7 @@ app.use('/', authenticationRoute);
 app.use('/', classesRoutes);
 app.use('/', mediaRoutes);
 app.use('/', questionRoutes);
+app.use('/', indexRoutes);
 
 app.listen(port, () => {
   console.log(`Server running on port : http://localhost:${port}/`);

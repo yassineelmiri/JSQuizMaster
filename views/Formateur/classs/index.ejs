@@ -1,19 +1,26 @@
 
 <ul>
  
-    <li><h1>students List</h1></li> 
+    <li><h1>Classes List</h1></li> 
   
 </ul>
+<% if(!hasClasse) {%>
 <div class="">
      <div>
-       
+        <form action="classe-create" method="post">
+          
+            <label for="validationCustom03" class="form-label">Classes name</label>
+            <input type="text" class="form-control w-100" placeholder="classe name" name="name"  required>
+          
         
         
-                <div class="d-flex justify-content-center mt-4">
+                    <input type="text" class="form-control" hidden value="<%=prof_id %>" name="prof_id" id="validationCustom03" >
+                <div class="d-flex justify-content-center mt-4"></div>
                     <button type="submit" class="border-0 p-1 rounded-4 w-25 bg-primary text-white font-weight-bold fs-4"><i class="fa fa-creative-commons ">Create</i></button>
                 </div>
-       
+        </form>
     </div>
+    <%} %>
 
 
 </div>
@@ -24,36 +31,22 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">student firstName</th>              
-              <th scope="col">student lastName</th>              
-              <th scope="col">student email</th>              
-              <th scope="col">student birth</th>              
-              <th scope="col">craated at</th>              
+              <th scope="col">class Name</th>
+              <th scope="col">count students</th>
+              
               <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
- <% students.forEach(function(student) { %>
+ <% classes.forEach(function(classe) { %>
             <tr>
               <th scope="row">1</th>
-          
+              <form action="/update-classe" method="post">
               <td> 
-                 <%= student.firstName %>
+                 <input type="text" class="form-control w-100 border-0 bg-transparent" placeholder="classe name" value="<%= classe.name %>" name="name"  required>
+                 <input type="text" class="form-control w-100" placeholder="classe name" hidden value="<%= classe.id %>" name="classe_id"  required>
              </td>
-                <td> 
-                 <%= student.lastName %>
-             </td>
-             
-              <td> 
-                 <%= student.email %>
-             </td>
-                <td> 
-                <%= new Date(student.birthDate).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }) %>
-
-             </td>
-                <td> 
-<%= new Date(student.RegistrationDate).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }) %>
-             </td>
+              <td>count students</td>
               
               
               <td class="d-flex gap-2 justify-content-center"> 
@@ -70,19 +63,20 @@
                 </button>
                               
                 </div>
+           </form>
              <div>
                <a
                   data-bs-toggle="tooltip"
                   data-bs-title="View details"
                   data-bs-placement="top"
                   class="btn btn-primary btn-sm"
-                  href="/classe-deatails?id=<%= student.id %>"
+                  href="/classe-deatails?id=<%= classe.id %>"
                   ><i class="bi bi-eye"></i
                 ></a>
                 </div>
                   <div></div>
                 <form action="/delete-classe" method="post">
-                <input type="text" class="form-control " placeholder="classe name" hidden value="<%= student.id %>" name="classe_id"  required>
+                <input type="text" class="form-control " placeholder="classe name" hidden value="<%= classe.id %>" name="classe_id"  required>
 
                 <button
                 type="submit"

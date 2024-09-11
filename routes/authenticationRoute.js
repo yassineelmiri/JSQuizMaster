@@ -18,6 +18,7 @@ router.get('/register',isGest, (req, res) => {
         res.render('Auth/register');
 });
 router.post('/registred', logincontroller.register);
+router.post('/logout', logincontroller.logout);
 
 module.exports = router;
 

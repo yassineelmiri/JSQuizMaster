@@ -17,6 +17,7 @@ module.exports = {
         const { name, prof_id } = req.body;
         try {
             Classe.createclasse({ name, prof_id });
+            req.session.user.hasClasse = true;
             res.redirect('/classe');
 
         } catch (error) {
@@ -37,6 +38,8 @@ module.exports = {
         const classe_id = req.body.classe_id;
         try {
             Classe.delete(classe_id);
+            req.session.user.hasClasse = false;
+
             res.redirect('/classe');
         } catch (error) {
             res.status(500).send(error.message);

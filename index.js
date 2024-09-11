@@ -13,7 +13,6 @@ const subjectRouter = require('./routes/subjectRoutes.js');
 const levelRouter = require('./routes/levelRoutes.js');
 const mediaRoutes = require('./routes/mediaRoute.js');
 const questionRoutes = require('./routes/questionRoute.js');
-const questionRoutes = require('./routes/questionRoute.js');
 
 const session = require('express-session');
 const morgan = require('morgan');

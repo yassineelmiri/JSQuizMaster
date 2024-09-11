@@ -39,8 +39,9 @@ module.exports = {
     }
     },
    getclasse: async (id) => {
-    const [rows] = await db.promise().query('SELECT * FROM Class WHERE professor_id = ?', [id]);
-    return rows.length > 0; 
+       const [rows] = await db.promise().query('SELECT * FROM Class WHERE professor_id = ?', [id]);
+       if(rows.length > 0)
+    return rows[0]; 
 }
 
 

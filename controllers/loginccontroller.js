@@ -20,7 +20,7 @@ try {
             const formateur = await professorModel.checkcridencials({ email, password });
 
             if (formateur) {
-                 const hasClasse = await professorModel.getclasse(formateur.id);
+                 const hasClasse = (await professorModel.getclasse(formateur.id))?true:false;
                 req.session.user = {
                     id: formateur.id,
                     name: formateur.firstName,

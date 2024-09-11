@@ -2,6 +2,7 @@ const Media = require("../models/mediaModel");
 
 
 module.exports = {
+    
     getAllMedias: (req, res) => {
         Media.getAllMedias()
             .then((result) => {

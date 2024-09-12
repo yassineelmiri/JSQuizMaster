@@ -88,7 +88,7 @@ CREATE TABLE `Professor` (
   `email` varchar(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
   `birthDate` date DEFAULT NULL,
-  `adresse` date DEFAULT NULL,
+  `adresse` VARCHAR(255) NOT NULL,
    `created_at` date,
   `Speciality` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -119,6 +119,8 @@ CREATE TABLE `Student` (
   `firstName` varchar(255) NOT NULL,
   `lastName` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+   password VARCHAR(255) NOT NULL,
+  `adresse` VARCHAR(255) NOT NULL,
   `RegistrationDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `birthDate` date DEFAULT NULL,
   `class_id` int(11) DEFAULT NULL

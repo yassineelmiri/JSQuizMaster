@@ -4,7 +4,7 @@
   "description": "Avec la montée en puissance des formations en ligne et des besoins d’évaluation continue, votre entreprise souhaite développer une solution innovante pour digitaliser les processus d’examens et de quiz. C’est dans ce cadre qu’est née \"JSQuizMaster\", une application destinée aux établissements éducatifs, aux centres de formation, et aux entreprises souhaitant évaluer les compétences de leurs apprenants ou employés.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,8 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.7.7",
-    "bcrypt": "^5.1.1",
-    "connect-livereload": "^0.6.1",
+    "bcryptjs": "^2.4.3",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-ejs-layouts": "^2.5.1",
@@ -21,8 +20,5 @@
     "livereload": "^0.9.3",
     "morgan": "^1.10.0",
     "mysql2": "^3.11.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.4"
   }
 }

@@ -1,3 +1,6 @@
+
+require('dotenv').config();
+
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
@@ -13,7 +16,6 @@ const subjectRouter = require('./routes/subjectRoutes.js');
 const levelRouter = require('./routes/levelRoutes.js');
 const mediaRoutes = require('./routes/mediaRoute.js');
 const questionRoutes = require('./routes/questionRoute.js');
-
 const session = require('express-session');
 const morgan = require('morgan');
 
@@ -45,7 +47,7 @@ app.use("/", testRouter);
 app.use("/", subjectRouter);
 app.use("/", levelRouter);
 app.use('/', authenticationRoute);
-app.use('/', classesRoutes);
+app.use('/', classesRoutes);  
 app.use('/', mediaRoutes);
 app.use('/', questionRoutes);
 app.use('/', studentRoutes);

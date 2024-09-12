@@ -29,11 +29,14 @@ module.exports = {
                     VALUES (?, ?, ?, ?);`,
                 [data.Name, data.testDate, data.Description, data.professor_id]
             )
-            .then(([result]) => result)
+            .then(([result]) => {
+                return result.insertId;
+            })
             .catch((err) => {
-                console.error('Error inserting professor:', err);
+                console.error('Error inserting test:', err);
             });
     },
+
     updateTest: (id, data) => {
         return db
             .promise()

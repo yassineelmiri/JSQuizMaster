@@ -8,10 +8,11 @@
      <div>
        
         
-        
+        <form action="/student-create" >
                 <div class="d-flex justify-content-center mt-4">
                     <button type="submit" class="border-0 p-1 rounded-4 w-25 bg-primary text-white font-weight-bold fs-4"><i class="fa fa-creative-commons ">Create</i></button>
                 </div>
+        </form>
        
     </div>
 
@@ -52,14 +53,14 @@
 
              </td>
                 <td> 
-<%= new Date(student.RegistrationDate).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+           <%= new Date(student.RegistrationDate).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }) %>
              </td>
               
               
               <td class="d-flex gap-2 justify-content-center"> 
                 <div>
-                 <button
-                 type="submit"
+                 <a
+                  href="student-edit?student=<%=student.id%>"              
                   data-bs-toggle="tooltip"
                   data-bs-title="Edit user"
                   data-bs-placement="top"
@@ -67,22 +68,14 @@
                 
                 >
                   <i class="bi bi-pencil"></i>
-                </button>
+                </a>
                               
                 </div>
              <div>
-               <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="View details"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="/classe-deatails?id=<%= student.id %>"
-                  ><i class="bi bi-eye"></i
-                ></a>
+              
                 </div>
-                  <div></div>
-                <form action="/delete-classe" method="post">
-                <input type="text" class="form-control " placeholder="classe name" hidden value="<%= student.id %>" name="classe_id"  required>
+                <form action="/delete-student" method="post">
+                <input type="text" class="form-control " placeholder="classe name" hidden value="<%= student.id %>" name="student_id"  required>
 
                 <button
                 type="submit"

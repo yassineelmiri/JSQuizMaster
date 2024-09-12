@@ -4,13 +4,20 @@ const professorModel = require('../models/professorModel.js');
 module.exports = {
     register: async (req, res) => {
         try {
-            const { firstName, lastName, email, password, birthDate, adresse, Speciality } = req.body;
-            await professorModel.addProfessor({ firstName, lastName, email, password, birthDate, adresse, Speciality });
+            const { firstName, lastName, email, password, birthDate, adress, Speciality } = req.body;
+
+            if (!firstName || !lastName || !email || !password || !birthDate || !adress || !Speciality) {
+                throw new Error("All fields are required");
+            }
+
+            await professorModel.addProfessor({ firstName, lastName, email, password, birthDate, adress, Speciality });
             res.redirect('/login?type=Formateur');
         } catch (error) {
-            res.status(500).send(error.message);
+            console.error('Error during registration:', error);
+            res.status(500).send("An error occurred during registration: " + error.message);
         }
     },
+
     login: async (req, res) => {
         const { email, password, role } = req.body;
         try {

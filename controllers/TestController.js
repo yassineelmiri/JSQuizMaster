@@ -4,7 +4,7 @@ module.exports = {
     getAllTests: (req, res) => {
         test.getAllTests()
             .then((result) => {
-                res.status(200).send(result);
+                res.render("Formateur/test", { tests: result });
             })
             .catch((error) => {
                 console.error("Error fetching tests:", error);
@@ -32,7 +32,7 @@ module.exports = {
         }
         try {
             const result = await test.addTest(data);
-            res.status(201).send(result);
+            res.render("Formateur/question", { id: result });
         } catch (error) {
             console.error("Error:", error);
             res.status(500).json({ message: `An error occurred: ${error.message}` });
@@ -66,6 +66,13 @@ module.exports = {
         } catch (error) {
             console.error("Error:", error);
             res.status(500).json({ message: `An error occurred: ${error.message}` });
+        }
+    },
+    testForm: (req, res) => {
+        if (req.session.user) {
+            res.render("Formateur/addTest", { user: req.session.user });
+        } else {
+            res.redirect('/login');
         }
     }
 }

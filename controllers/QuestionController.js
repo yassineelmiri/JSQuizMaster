@@ -5,7 +5,7 @@ module.exports = {
     getAllQuestions: (req, res) => {
         Question.getAllQuestions()
             .then((result) => {
-                res.status(200).send(result);
+                res.render("Formateur/qestion", { questions: result });;
             })
             .catch((error) => {
                 console.error("Error fetching Questions:", error);

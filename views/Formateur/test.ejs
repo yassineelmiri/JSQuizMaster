@@ -1,137 +1,159 @@
+<style>
+  .ag-format-container {
+    width: 1142px;
+    margin: 0 auto;
+  }
 
 
+  body {
+    background-color: #FFFFFF;
+  }
 
-    <!-- <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
+  .ag-courses_box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+    padding: 50px 0;
+  }
 
-      .b-example-divider {
-        width: 100%;
-        height: 3rem;
-        background-color: rgba(0, 0, 0, 0.1);
-        border: solid rgba(0, 0, 0, 0.15);
-        border-width: 1px 0;
-        box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
-          inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
-      }
+  .ag-courses_item {
+    -ms-flex-preferred-size: calc(33.33333% - 30px);
+    flex-basis: calc(33.33333% - 30px);
 
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
+    margin: 0 15px 30px;
 
-      .bi {
-        vertical-align: -0.125em;
-        fill: currentColor;
-      }
+    overflow: hidden;
 
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
+    border-radius: 28px;
+  }
 
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
+  .ag-courses-item_link {
+    display: block;
+    padding: 30px 20px;
+    background-color: #3D72FC;
 
-      .btn-bd-primary {
-        --bd-violet-bg: #712cf9;
-        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+    overflow: hidden;
 
-        --bs-btn-font-weight: 600;
-        --bs-btn-color: var(--bs-white);
-        --bs-btn-bg: var(--bd-violet-bg);
-        --bs-btn-border-color: var(--bd-violet-bg);
-        --bs-btn-hover-color: var(--bs-white);
-        --bs-btn-hover-bg: #6528e0;
-        --bs-btn-hover-border-color: #6528e0;
-        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-        --bs-btn-active-color: var(--bs-btn-hover-color);
-        --bs-btn-active-bg: #5a23c8;
-        --bs-btn-active-border-color: #5a23c8;
-      }
-      .bd-mode-toggle {
-        z-index: 1500;
-      }
-    </style> -->
+    position: relative;
+  }
+
+  .ag-courses-item_link:hover,
+  .ag-courses-item_link:hover .ag-courses-item_date {
+    text-decoration: none;
+    color: #FFF;
+  }
+
+  .ag-courses-item_link:hover .ag-courses-item_bg {
+    -webkit-transform: scale(10);
+    -ms-transform: scale(10);
+    transform: scale(10);
+  }
+
+  .ag-courses-item_title {
+    min-height: 87px;
+    margin: 0 0 25px;
+
+    overflow: hidden;
+
+    font-weight: bold;
+    font-size: 30px;
+    color: #FFF;
+
+    z-index: 2;
+    position: relative;
+  }
+
+  .ag-courses-item_date-box {
+    font-size: 18px;
+    color: #FFF;
+
+    z-index: 2;
+    position: relative;
+  }
+
+  .fixed-add-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3D72FC;
+    color: white;
+    padding: 15px 25px;
+    font-size: 18px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+  }
+
+  .fixed-add-button:hover {
+    background-color: #2956d1;
+  }
 
 
-    <main class="d-flex flex-nowrap">
-      
+  @media only screen and (max-width: 979px) {
+    .ag-courses_item {
+      -ms-flex-preferred-size: calc(50% - 30px);
+      flex-basis: calc(50% - 30px);
+    }
 
-      <section class="w-100">
-      
+    .ag-courses-item_title {
+      font-size: 24px;
+    }
+  }
 
-        <form action="/submit-test" method="POST" class="mx-0 row gx-3 gy-4 mt-3">
-          <div class="col-md-6">
-            <label for="inputName" class="form-label">Name:</label>
-            <input
-              placeholder="Test Name"
-              type="text"
-              class="form-control"
-              id="inputName"
-              name="Name"
-              required
-            />
-          </div>
-          
-          <div class="col-md-6">
-            <label for="inputDate" class="form-label">Test Date:</label>
-            <input
-              type="date"
-              class="form-control"
-              id="inputDate"
-              name="testDate"
-            />
-          </div>
-        
-          <div class="col-md-12">
-            <label for="inputDescription" class="form-label">Description:</label>
-            <input
-              type="text"
-              class="form-control"
-              id="inputDescription"
-              name="Description"
-            />
-          </div>
-        
-          <div class="col-md-6">
-            <label for="inputProfessor" class="form-label">Professor ID:</label>
-            <input
-              type="number"
-              class="form-control"
-              id="inputProfessor"
-              name="professor_id"
-              required
-            />
-          </div>
-        
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
-      </section>
-    </main>
-    
- 
+  @media only screen and (max-width: 767px) {
+    .ag-format-container {
+      width: 96%;
+    }
+
+  }
+
+  @media only screen and (max-width: 639px) {
+    .ag-courses_item {
+      -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+    }
+
+    .ag-courses-item_title {
+      min-height: 72px;
+      line-height: 1;
+
+      font-size: 24px;
+    }
+
+    .ag-courses-item_link {
+      padding: 22px 40px;
+    }
+
+    .ag-courses-item_date-box {
+      font-size: 16px;
+    }
+  }
+</style>
+<div class="ag-format-container"></div>
+<div class="ag-courses_box">
+  <% tests.forEach(function(test) { %>
+    <div class="ag-courses_item">
+      <a href="/question" class="ag-courses-item_link">
+        <div class="ag-courses-item_bg"></div>
+        <div class="ag-courses-item_title">
+          <%= test.Name %>
+        </div>
+        <div class="ag-courses-item_date-box">
+          Start:
+          <span class="ag-courses-item_date">
+            <%= new Date(test.testDate).toLocaleDateString('en-GB') %>
+          </span>
+        </div>
+      </a>
+    </div>
+    <% }) %>
+      <a href="/addTest" class="fixed-add-button">Add Test</a>
+</div>

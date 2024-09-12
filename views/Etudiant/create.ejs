@@ -1,0 +1,112 @@
+
+
+
+
+<div class="container mt-5">
+    <form action="/register-student" method="post" class="row g-3 needs-validation" novalidate id="registerForm">
+        <div class="col-md-6">
+            <label for="validationCustom01" class="form-label">First name</label>
+            <input type="text" name="firstName" placeholder="First name" class="form-control" id="validationCustom01" required>
+            <div class="invalid-feedback">
+                First name should only contain letters (no numbers or special characters).
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="validationCustom02" class="form-label">Last name</label>
+            <input type="text" name="lastName" placeholder="Last name" class="form-control" id="validationCustom02" required>
+            <div class="invalid-feedback">
+                Last name should only contain letters (no numbers or special characters).
+            </div>
+        </div>
+        <div class="col-md-12">
+            <label for="validationCustom03" class="form-label">Address</label>
+            <input type="text" name="adress" placeholder="Address" class="form-control" id="validationCustom03" required>
+            <div class="invalid-feedback">
+                Address should only contain letters and spaces (no special characters).
+            </div>
+        </div>
+        <div class="col-md-12">
+            <label for="validationCustom04" class="form-label">Birth Date</label>
+            <input type="date" name="birthDate" class="form-control" id="validationCustom04" required>
+            <div class="invalid-feedback">
+                Birth date is required.
+            </div>
+        </div>
+       
+        <div class="col-md-12">
+            <label for="validationCustom06" class="form-label">Email</label>
+            <input type="email" name="email" placeholder="Email" class="form-control" id="validationCustom06" required>
+            <div class="invalid-feedback">
+                Please provide a valid email address.
+            </div>
+        </div>
+        <div class="col-md-12">
+            <label for="validationCustom07" class="form-label">Password</label>
+            <input type="password" name="password" placeholder="Password" class="form-control" id="validationCustom07" required>
+            <div class="invalid-feedback">
+                Password must be at least 6 characters long, no spaces or special characters.
+            </div>
+        </div>
+   
+            <input type="text" name="classe_id" placeholder="Last name" hidden value="<%=classe.id %>" class="form-control" id="validationCustom02" required>
+          
+        <div class="col-12 d-flex align-items-center">
+            <button class="btn btn-primary" type="submit">Create student</button>&nbsp;
+        </div>
+    </form>
+</div>
+
+<script>
+    const namePattern = /^[A-Za-z]+$/; 
+    const addressPattern = /^[A-Za-z\s]+$/; 
+    const passwordPattern = /^[A-Za-z0-9]{6,}$/; 
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('registerForm');
+
+        form.addEventListener('submit', function (event) {
+            const firstName = document.getElementById('validationCustom01');
+            const lastName = document.getElementById('validationCustom02');
+            const address = document.getElementById('validationCustom03');
+            const specialty = document.getElementById('validationCustom05');
+            const password = document.getElementById('validationCustom07');
+
+
+            if (!namePattern.test(firstName.value)) {
+                firstName.setCustomValidity('Invalid');
+                firstName.nextElementSibling.textContent = "First name must contain only letters";
+            } else {
+                firstName.setCustomValidity('');
+            }
+
+            if (!namePattern.test(lastName.value)) {
+                lastName.setCustomValidity('Invalid');
+                lastName.nextElementSibling.textContent = "Last name must contain only letters";
+            } else {
+                lastName.setCustomValidity('');
+            }
+
+            if (!addressPattern.test(address.value)) {
+                address.setCustomValidity('Invalid');
+                address.nextElementSibling.textContent = "Address must contain only letters and spaces";
+            } else {
+                address.setCustomValidity('');
+            }
+
+          
+
+            if (!passwordPattern.test(password.value)) {
+                password.setCustomValidity('Invalid');
+                password.nextElementSibling.textContent = "Password must be at least 6 characters long, with no spaces or special characters";
+            } else {
+                password.setCustomValidity('');
+            }
+
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+
+            form.classList.add('was-validated');
+        });
+    });
+</script>

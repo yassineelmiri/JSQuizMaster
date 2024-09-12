@@ -12,19 +12,18 @@
       sizes="20x20"
       type="image/png"
     />
-
     <!-- Stylesheet -->
     <link rel="stylesheet" href="assets/css/vendor.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
   </head>
-  <body>
+  <body class="bg-blue">
     <div class="row " style="max-height: 100vh;">
       <% if (user) { %>
         <div class="col-2"><%- include('layouts/sidebar.ejs') %></div>
       <% } %>
     
-      <main class="container col-sm-12">
+      <main class="container col-lg-10 col-sm-12 ">
         <% if (user) { %> 
           <%- include('layouts/navbar.ejs') %> 
         <% } %>

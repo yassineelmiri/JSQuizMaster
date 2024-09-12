@@ -3,9 +3,11 @@ const Classe =require('../models/classemodel.js')
 module.exports = {
     getclasses: (req, res) => {
         const prof_id = req.session.user.id;
-
+  
+  
         Classe.getclasses(prof_id)
             .then((classes) => {
+                
                 res.render('Formateur/classs/index', { classes, prof_id });
             })
             .catch((error) => {

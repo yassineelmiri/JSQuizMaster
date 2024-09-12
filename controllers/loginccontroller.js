@@ -1,4 +1,5 @@
 const professorModel = require('../models/professorModel.js');
+const Student = require('../models/studentModel');
 
 
 module.exports = {
@@ -51,7 +52,7 @@ try {
                     name: student.name,
                     role: 'Student'  
                 };
-                return res.redirect('/student');  
+                return res.redirect('/Dashboard');  
             } else {
                 return res.status(401).send('Invalid credentials for Student');
             }

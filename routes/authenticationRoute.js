@@ -8,7 +8,12 @@ const isGest = require('../middlewares/isGest');
 
 router.get('/Login',isGest, (req, res) => {
     const role = req.query.type;
-    res.render("Auth/login", { role });
+    if (role) {
+            res.render("Auth/login", { role });
+
+    } else {
+        res.redirect('/');
+    }
 });
 
 router.post('/logined', logincontroller.login);

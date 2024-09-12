@@ -1,5 +1,4 @@
 const db = require('../db');
-const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 
@@ -19,13 +18,12 @@ module.exports = {
     },
     addstudent: async (data)=>{
          const { firstName, lastName, email, password, birthDate, adress, classe_id } = data;
-                const hashedPassword = await bcrypt.hash(password, saltRounds);
             return db
                         .promise()
                         .query(
                             `INSERT INTO Student (firstName, lastName, email, password, adresse, birthDate, RegistrationDate, class_id)
                                 VALUES (?, ?, ?, ?, ?, ?, ?, ?);`,
-                            [firstName, lastName, email, hashedPassword,adress,birthDate,new Date(), classe_id ]
+                            [firstName, lastName, email, password,adress,birthDate,new Date(), classe_id ]
                         )
                         .then(([result]) => result)
                         .catch((err) => {

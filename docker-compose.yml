@@ -11,7 +11,6 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: admin
       MYSQL_DATABASE: jcc
-    command: "nodemon --inspect=0.0.0.0:9229 -L --nolazy index.js"
     volumes:
       - .:/app
   db:

@@ -14,6 +14,9 @@ module.exports = {
     },
     getOneSubject: (req, res) => {
         const id = req.params.id;
+        if (!id) {
+            console.log("there is no subject selected");
+        }
         subject.getOneSubjects(id)
             .then((result) => {
                 res.status(200).send(result);
@@ -25,6 +28,9 @@ module.exports = {
     },
     addSubject: async (req, res) => {
         const data = req.body;
+        if (!data.Name) {
+            console.log("please add a name of the subject");
+        }
         try {
             const result = await subject.addSubject(data);
             res.status(201).send(result);
@@ -36,6 +42,12 @@ module.exports = {
     updateSubject: async (req, res) => {
         const id = req.params.id;
         const data = req.body;
+        if (!id) {
+            console.log("there is no subject selected");
+        }
+        if (!data.Name) {
+            console.log("please add a name of the subject");
+        }
         try {
             const result = await subject.updateSubject(id, data);
             res.status(200).send(result);
@@ -46,6 +58,9 @@ module.exports = {
     },
     deleteSubject: async (req, res) => {
         const id = req.params.id;
+        if (!id) {
+            console.log("there is no subject selected");
+        }
         try {
             const result = await subject.deleteSubject(id);
             res.status(200).send(result);

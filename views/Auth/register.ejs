@@ -52,12 +52,12 @@
             <div class="col-6">
               <div class="single-input-inner style-bg-border">
                 <label for="validationCustom01" class="form-label"
-                  >First name</label
+                  >last name</label
                 >
                 <input
                   type="text"
-                  name="firstName"
-                  placeholder="First name"
+                  name="lastName"
+                  placeholder="last name"
                   class="form-control"
                   id="validationCustom01"
                   required
@@ -175,7 +175,7 @@
 <script>
   // Regex for validation
   const namePattern = /^[A-Za-z]+$/; // Only letters for names and specialty
-  const addressPattern = /^[A-Za-z\s]+$/; // Letters and spaces for address
+  const addressPattern = /^[A-Za-z]+$/; // Letters and spaces for address
   const passwordPattern = /^[A-Za-z0-9]{6,}$/; // At least 6 characters, no special characters, no spaces
 
   document.addEventListener("DOMContentLoaded", function () {

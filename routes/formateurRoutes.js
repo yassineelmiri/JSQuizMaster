@@ -20,7 +20,7 @@ router.get("/Formateur/test", (req, res) => {res.render("Formateur/test");});
 //   res.render("Formateur/qestion");
 // });
 
-// router.get("/Formateur/Resulte", (req, res) => {
+// router.get("/Formateur/resulte", (req, res) => {
 //   res.render("Formateur/resulte");
 // });
 

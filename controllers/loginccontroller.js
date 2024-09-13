@@ -1,4 +1,5 @@
 const professorModel = require('../models/professorModel.js');
+const Student = require('../models/studentModel');
 
 
 module.exports = {
@@ -44,25 +45,25 @@ module.exports = {
             else if (role === 'Student') {
                 const student = await Student.checkcridencials({ email, password });
 
-                if (student) {
-
-                    req.session.user = {
-                        id: student.id,
-                        name: student.name,
-                        role: 'Student'
-                    };
-                    return res.redirect('/student');
-                } else {
-                    return res.status(401).send('Invalid credentials for Student');
-                }
+            if (student) {
+                
+                req.session.user = {
+                    id: student.id,
+                    name: student.name,
+                    role: 'Student'  
+                };
+                return res.redirect('/Dashboard');  
+            } else {
+                return res.status(401).send('Invalid credentials for Student');
             }
-            else {
-                return res.status(403).send('Unauthorized role');
-            }
-        } catch (error) {
-            console.error('Login error:', error);
-            return res.status(500).send('Internal Server Error');
+        } 
+        else {
+            return res.status(403).send('Unauthorized role');
         }
+    } catch (error) {
+        console.error('Login error:', error);
+        return res.status(500).send('Internal Server Error');
+    }
     },
     logout: (req, res) => {
 

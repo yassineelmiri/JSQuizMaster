@@ -23,7 +23,7 @@
         <div class="col-2"><%- include('layouts/sidebar.ejs') %></div>
       <% } %>
     
-      <main class="container col-lg-10 col-sm-12 ">
+      <main class="container  <% if(user){'col-lg-10'}else{'col-lg-12'}  %> col-sm-12 ">
         <% if (user) { %> 
           <%- include('layouts/navbar.ejs') %> 
         <% } %>

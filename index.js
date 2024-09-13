@@ -3,7 +3,6 @@ require('dotenv').config();
 
 const express = require("express");
 const path = require("path");
-const bodyParser = require("body-parser");
 
 const indexRoutes = require('./routes/index');
 const profileRoutes = require('./routes/profileRoutes');

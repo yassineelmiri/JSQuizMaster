@@ -12,6 +12,16 @@ module.exports = {
                 res.status(500).json({ message: "An error occurred while fetching professors." });
             });
     },
+    getProfessorsResulte : (req, res) => {
+        professor.getProfessorsResulte()
+            .then((result) => {
+                res.status(200).send(result);
+            })
+            .catch((error) => {
+                console.error("Error fetching professors:", error);
+                res.status(500).json({ message: "An error occurred while fetching professors." });
+            });
+    },
     getOneProfessor: (req, res) => {
         const id = req.params.id;
         professor.getOneProfessor(id)

@@ -1,34 +1,33 @@
-.bi-lightning-charge::before {
+.bi-lightning-charge::before{
   margin-right: 1rem;
   font-size: 1.9rem;
 }
 
 
 /* SIDEBAR */
-.sidebar {
-  width:100%;
-height:100vh;
+.sidebar{
+  width: 280px;
   transition: 0.3s;
 }
 
-.small-sidebar {
+.small-sidebar{
   width: 77px;
 }
 
-.small-sidebar .sidebar-text {
+.small-sidebar .sidebar-text{
   display: none;
 }
 
 
 /* Logo */
-.bi-lightning-charge {
-
+.bi-lightning-charge{
+ 
   transition: 1s;
   margin-top: 0.5rem;
 }
 
-.small-sidebar .bi-lightning-charge {
-
+.small-sidebar .bi-lightning-charge{
+ 
   margin-top: 2.5rem;
 }
 
@@ -48,15 +47,17 @@ height:100vh;
 
 
 
-.bi-x-circle {
+.bi-x-circle{
   font-size: 1.4rem;
   transition: 0.25s;
   color: #adb5bd;
 }
 
 
-.bi-x-circle:hover {
+.bi-x-circle:hover{
   font-size: 1.5rem;
-
+ 
   color: #fff;
 }
+
+

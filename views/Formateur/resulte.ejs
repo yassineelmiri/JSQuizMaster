@@ -1,0 +1,77 @@
+<div class="b-example-divider b-example-vr"></div>
+
+<section class="w-100">
+  <nav class="navbar bg-body-tertiary">
+    <div
+      class="container-fluid justify-content-center justify-content-md-between"
+    >
+      <a class="navbar-brand fw-medium fs-3 mb-1 mb-md-0">
+        Quiz<sup>js</sup>Master</a
+      >
+
+      <form class="d-flex" role="search">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <table
+    style="width: 99%"
+    class="text-center mx-auto table mt-5 table-striped table-bordered"
+  >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Birth Date</th>
+        <th scope="col">Speciality</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% professors.forEach((professor, index) => { %>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <td><%= professor.firstName %> <%= professor.lastName %></td>
+        <td><%= professor.email %></td>
+        <td><%= professor.birthDate %></td>
+        <td><%= professor.Speciality %></td>
+        <td>
+          <a
+            data-bs-toggle="tooltip"
+            data-bs-title="View details"
+            data-bs-placement="top"
+            class="btn btn-primary btn-sm"
+            href="./user/view.html"
+            ><i class="bi bi-eye"></i
+          ></a>
+
+          <a
+            data-bs-toggle="tooltip"
+            data-bs-title="Edit professor"
+            data-bs-placement="top"
+            class="btn btn-primary btn-sm"
+            href="./user/edit.html"
+          >
+            <i class="bi bi-pencil"></i>
+          </a>
+          <button
+            data-bs-toggle="tooltip"
+            data-bs-title="Delete professor"
+            data-bs-placement="top"
+            class="btn btn-danger btn-sm"
+          >
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</section>

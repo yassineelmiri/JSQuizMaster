@@ -6,37 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Quiz js</title>
-    <link
-      rel="icon"
-      href="assets/img/favicon.png"
-      sizes="20x20"
-      type="image/png"
-    />
-    <!-- Stylesheet -->
+    <link rel="icon" href="assets/img/favicon.png" sizes="20x20" type="image/png" />
     <link rel="stylesheet" href="assets/css/vendor.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
   </head>
-  <body class="bg-blue">
-    <div class="row " style="max-height: 100vh;">
-      <% if (user) { %>
-        <div class="col-2"><%- include('layouts/sidebar.ejs') %></div>
-      <% } %>
-    
-      <main class="container  <% if(user){'col-lg-10'}else{'col-lg-12'}  %> col-sm-12 ">
-        <% if (user) { %> 
-          <%- include('layouts/navbar.ejs') %> 
+  <body class="d-flex flex-column min-vh-100 bg-blue">
+    <div class="d-flex flex-grow-1 w-100">
+      <div class="row flex-grow-1 w-100">
+        <% if (user) { %>
+          <div class="col-2"><%- include('layouts/sidebar.ejs') %></div>
         <% } %>
-        
-        <!-- Correction de max-height -->
-        <div ><%- body %></div>
-    
-        <% if (user) { %> 
-          <%- include('layouts/footer.ejs') %> 
-        <% } %>
-      </main>
+
+        <main class="container <%= user ? 'col-lg-10' : 'col-lg-12' %> col-sm-12 d-flex flex-column justify-content-center">
+          <% if (user) { %> 
+            <%- include('layouts/navbar.ejs') %> 
+          <% } %>
+
+          <div class="flex-grow-1 overflow-y-auto">
+            <%- body %>
+          </div>
+        </main>
+      </div>
     </div>
-    
+
+    <% if (user) { %> 
+      <footer class="mt-auto">
+        <%- include('layouts/footer.ejs') %>
+      </footer>
+    <% } %>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- all plugins here -->

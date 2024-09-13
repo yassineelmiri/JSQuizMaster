@@ -1,0 +1,31 @@
+<div class="row p-4 ">
+  <% studenttests.forEach(function(studenttest) { %>
+    <div class="card  col-lg-4  mx-2">
+      <a href="/question" class="ag-courses-item_link">
+        <div class="ag-courses-item_bg"></div>
+        <div class="ag-courses-item_title">
+            <div>
+                <h4>hello<%= studenttest.StudentName %></h4>
+                <h4><%= studenttest.Name %></h4>
+                <p><%= studenttest.Description %></p>
+                <p><%= studenttest.ProfessorName %></p>
+                <p><%= studenttest.ProfessorSpeciality %></p>
+                <p><%= studenttest.email %></p>
+               
+            </div>
+        <%= new Date(studenttest.pasingDate).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+
+        
+        </div>
+        <div class="ag-courses-item_date-box">
+          Start:
+          <span class="ag-courses-item_date">
+           
+          </span>
+        </div>
+        
+      </a>
+    </div>
+    <% }) %>
+
+</div>

@@ -79,7 +79,7 @@ module.exports = {
             console.error('Error fetching students:', error);
             throw error;
         }
-    }
+    },
     
      checkcridencials: async (formateurData) => {
         const { email, password } = formateurData;

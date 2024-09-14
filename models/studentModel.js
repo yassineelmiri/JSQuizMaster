@@ -70,4 +70,15 @@ module.exports = {
                 console.error('Error deleting student:', err);
             });
     },
+    getAllStudents: async () => {
+        try {
+            const [rows] = await db.promise().query('SELECT * FROM Student');
+            console.log("Students retrieved from database:", rows); // Ajoutez ce log pour vérifier les données
+            return rows;
+        } catch (error) {
+            console.error('Error fetching students:', error);
+            throw error;
+        }
+    }
+    
 };

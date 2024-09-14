@@ -71,6 +71,16 @@ module.exports = {
             res.status(500).send(error.message);
         }
 
+    },
+
+    getAllStudents: async () => {
+        try {
+            const [rows] = await db.promise().query('SELECT * FROM Student');
+            return rows;
+        } catch (error) {
+            console.error('Error fetching students:', error);
+            throw error;
+        }
     }
 
 

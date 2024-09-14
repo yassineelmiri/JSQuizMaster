@@ -137,7 +137,7 @@ CREATE TABLE `StudentTest` (
   `score` int(11) DEFAULT NULL,
   `repeats` int(11) DEFAULT NULL,
   `pasingDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `final` tinyint(1) DEFAULT NULL,
+  `final` boolean DEFAULT FALSE,
   `student_id` int(11) DEFAULT NULL,
   `test_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

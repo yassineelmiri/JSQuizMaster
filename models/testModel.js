@@ -1,62 +1,41 @@
 const db = require('../db');
 
-module.exports = {
+
+const testModel = {
     getAllTests: () => {
-        const result = db
-            .promise()
-            .query('SELECT * FROM Test')
-            .then(([result]) => result)
-            .catch((err) => {
-                console.error("Error fetching tests:", err);
+        return new Promise((resolve, reject) => {
+            const query = "SELECT * FROM Test";
+            db.query(query, (err, results) => {
+                if (err) {
+                    console.error("Error fetching tests from DB:", err);
+                    return reject(err);
+                }
+                resolve(results);
             });
-        return result;
-    },
+        });
+    }
+,
+
     getOneTest: (id) => {
-        const result = db
-            .promise()
-            .query(`SELECT * FROM Test where id = ${id}`)
-            .then(([result]) => result)
-            .catch((err) => {
-                console.error("Error fetching test:", err);
-            });
-        return result;
+        const query = 'SELECT * FROM Test WHERE id = ?';
+        return db.query(query, [id]);
     },
+
     addTest: (data) => {
-        return db
-            .promise()
-            .query(
-                `INSERT INTO Test (Name, testDate, Description, professor_id)
-                    VALUES (?, ?, ?, ?);`,
-                [data.Name, data.testDate, data.Description, data.professor_id]
-            )
-            .then(([result]) => {
-                return result.insertId;
-            })
-            .catch((err) => {
-                console.error('Error inserting test:', err);
-            });
+        const query = 'INSERT INTO Test (Name, testDate, Description, professor_id) VALUES (?, ?, ?, ?)';
+        return db.query(query, [data.Name, data.testDate, data.Description, data.professor_id]);
     },
 
     updateTest: (id, data) => {
-        return db
-            .promise()
-            .query(`UPDATE Test 
-                SET Name=?, testDate=?, Description=?, professor_id=?
-                WHERE id = ${id};`,
-                [data.Name, data.testDate, data.Description, data.professor_id])
-            .then(([result]) => result)
-            .catch((err) => {
-                console.error('Error updating test', err);
-            });
+        const query = 'UPDATE Test SET Name = ?, testDate = ?, Description = ?, professor_id = ? WHERE id = ?';
+        return db.query(query, [data.Name, data.testDate, data.Description, data.professor_id, id]);
     },
+
     deleteTest: (id) => {
-        return db
-            .promise()
-            .query(`DELETE FROM Test WHERE id = ${id}`)
-            .then(([result]) => result)
-            .catch((err) => {
-                console.error('Error deleting test:', err);
-            });
+        const query = 'DELETE FROM Test WHERE id = ?';
+        return db.query(query, [id]);
     }
 };
 
+
+module.exports = testModel;

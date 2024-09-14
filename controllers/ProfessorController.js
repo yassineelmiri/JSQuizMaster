@@ -1,5 +1,5 @@
 const professor = require("../models/professorModel");
-
+const student = require("../models/studentModel");
 
 module.exports = {
     getAllProfessors: (req, res) => {
@@ -62,6 +62,27 @@ module.exports = {
         } catch (error) {
             console.error("Error:", error);
             res.status(500).json({ message: `An error occurred: ${error.message}` });
+        }
+    },
+    assignTestToStudents: async (req, res) => {
+        const { studentIds, quizId } = req.body;
+
+        try {
+            await professor.assignTestToStudents(studentIds, quizId);
+            res.status(200).send("Quiz requests sent successfully.");
+        } catch (error) {
+            console.error("Error assigning quiz:", error);
+            res.status(500).json({ message: "An error occurred while assigning the quiz." });
+        }
+    },
+
+    renderAssignTestPage: async (req, res) => {
+        try {
+            const students = await student.getAllStudents(); // Assurez-vous que vous avez une méthode pour récupérer tous les étudiants
+            res.render('Formateur/Assign', { students });
+        } catch (error) {
+            console.error("Error fetching students:", error);
+            res.status(500).json({ message: "An error occurred while fetching students." });
         }
     }
 

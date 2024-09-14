@@ -18,7 +18,6 @@ module.exports = {
     addstudent: async (data) => {
         const { firstName, lastName, email, password, birthDate, adress, classe_id } = data;
 
-        // Hash the password using bcryptjs
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
         return db
@@ -70,6 +69,7 @@ module.exports = {
                 console.error('Error deleting student:', err);
             });
     },
+
     getAllStudents: async () => {
         try {
             const [rows] = await db.promise().query('SELECT * FROM Student');
@@ -81,4 +81,23 @@ module.exports = {
         }
     }
     
+     checkcridencials: async (formateurData) => {
+        const { email, password } = formateurData;
+        try {
+            const [rows] = await db.promise().query('SELECT * FROM Student WHERE email = ?', [email]);
+
+            if (rows.length > 0) {
+                const student = rows[0];
+                const match = await bcrypt.compare(password, student.password);
+                if (match) {
+                    return student;
+                }
+            }
+            return null;
+        } catch (error) {
+            console.error('Error checking credentials:', error);
+            throw error;
+        }
+    },
+
 };

@@ -32,9 +32,11 @@
                         <div class="col-12 mb-4">
                             <button class="btn btn-base w-100" type="submit">Sign In</button>
                         </div>
+                        <%if(role=="Formateur"){ %>
                         <div class="col-12">
                             <a href="/register"><strong>Don't have an account?</strong></a>
                         </div>
+                        <% } %>
                     </div>
                 </form>
             </div>

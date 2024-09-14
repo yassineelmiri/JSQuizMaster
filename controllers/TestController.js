@@ -82,5 +82,10 @@ module.exports = {
         } else {
             res.redirect('/login');
         }
+    },
+    getStudentTests: async (req, res) => {
+        const id = req.session.user.id;
+      const studenttests = await test.getStudentTest(id);
+        res.render('StudentTests/index',{studenttests});
     }
 };

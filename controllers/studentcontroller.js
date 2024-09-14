@@ -1,9 +1,6 @@
 const student = require('../models/studentModel');
 const professorModel = require('../models/professorModel.js');
-const { json } = require('express');
-
-
-
+const mailer = require('../models/mailer.js');
 
 
 module.exports = {
@@ -32,8 +29,10 @@ module.exports = {
 
         
           //KNT DAYR VARIABLE CONST const ana =   !!!!
-            await student.addstudent({ firstName, lastName, email, password, adress, birthDate, classe_id });
-
+    
+                await student.addstudent({ firstName, lastName, email, password, adress, birthDate, classe_id });
+               mailer.sendCredentials(email,firstName,password)
+            
             res.redirect('/students');
         } catch (error) {
             res.status(500).send(error.message);

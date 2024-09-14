@@ -32,8 +32,41 @@ const testModel = {
     },
 
     deleteTest: (id) => {
-        const query = 'DELETE FROM Test WHERE id = ?';
-        return db.query(query, [id]);
+        return db
+            .promise()
+            .query(`DELETE FROM Test WHERE id = ${id}`)
+            .then(([result]) => result)
+            .catch((err) => {
+                console.error('Error deleting test:', err);
+            });
+    },
+    getStudentTest: async (id) => {
+         const result = db
+            .promise()
+            .query(`SELECT 
+    StudentTest.score, 
+    StudentTest.repeats, 
+    Test.Name, 
+    Test.Description, 
+    Professor.firstName AS ProfessorName, 
+    Professor.email, 
+    Professor.Speciality AS ProfessorSpeciality,
+    Student.firstName AS StudentName
+FROM 
+    StudentTest
+JOIN 
+    Test ON StudentTest.Test_id = Test.id
+JOIN 
+    Professor ON Test.Professor_id = Professor.id
+JOIN 
+    Student ON StudentTest.Student_id = Student.id
+WHERE 
+    Student.id =  ?`,[id])
+            .then(([result]) => result)
+            .catch((err) => {
+                console.error("Error fetching test:", err);
+            });
+        return result;
     }
 };
 

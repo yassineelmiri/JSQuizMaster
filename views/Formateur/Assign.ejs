@@ -1,0 +1,60 @@
+<style>
+    body {
+        padding-top: 20px;
+    }
+    .container {
+        max-width: 800px;
+    }
+    .form-control {
+        margin-bottom: 15px;
+    }
+    table {
+        width: 100%;
+        margin-bottom: 20px;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+    th {
+        background-color: #f4f4f4;
+    }
+</style>
+
+<div class="container">
+    <h1 class="mb-4">Assign Test to Students</h1>
+    <form action="/professors/assign-test" method="POST">
+        <div class="form-group">
+            <label for="studentSelect">Select Students:</label>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% students.forEach(function(student) { %>
+                        <tr>
+                            <td><input type="checkbox" name="studentIds[]" value="<%= student.id %>"></td>
+                            <td><%= student.id %></td>
+                            <td><%= student.firstName %></td>
+                            <td><%= student.lastName %></td>
+                            <td><%= student.email %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+        <div class="form-group">
+            <label for="testId">Test ID:</label>
+            <input type="text" id="testId" name="testId" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Test Requests</button>
+    </form>
+</div>

@@ -46,6 +46,30 @@ module.exports = {
         const [rows] = await db.promise().query('SELECT * FROM Class WHERE professor_id = ?', [id]);
         if (rows.length > 0)
             return rows[0];
+    },
+    assignTestToStudents: async (studentIds, testId) => {
+        try {
+            const queries = studentIds.map(id => {
+                return db.promise().query(
+                    'INSERT INTO StudentTest (student_id, test_id, pasingDate) VALUES (?, ?, ?)',
+                    [id, testId, new Date()]
+                );
+            });
+
+            await Promise.all(queries);
+        } catch (error) {
+            console.error('Error assigning test to students:', error);
+            throw error;
+        }
+    },
+    renderAssignTestPage: async (req, res) => {
+        try {
+            const students = await student.getAllStudents();
+            res.render('Formateur/Assign', { students });
+        } catch (error) {
+            console.error("Error fetching students:", error);
+            res.status(500).json({ message: "An error occurred while fetching students." });
+        }
     }
 
 };

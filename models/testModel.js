@@ -2,18 +2,15 @@ const db = require('../db');
 
 
 const testModel = {
-    getAllTests: () => {
-        return new Promise((resolve, reject) => {
-            const query = "SELECT * FROM Test";
-            db.query(query, (err, results) => {
-                if (err) {
-                    console.error("Error fetching tests from DB:", err);
-                    return reject(err);
-                }
-                resolve(results);
-            });
-        });
-    }
+    getAllTests: async () => {
+        try {
+          const [rows] = await db.promise().query("SELECT * FROM Test");
+          return rows;
+        } catch (error) {
+          console.error("Error fetching tests:", error);
+          throw error;
+        }
+      }
 ,
 
     getOneTest: (id) => {

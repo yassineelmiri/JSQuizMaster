@@ -52,8 +52,13 @@
             </table>
         </div>
         <div class="form-group">
-            <label for="testId">Test ID:</label>
-            <input type="text" id="testId" name="testId" class="form-control" required>
+            <label for="testId">Test:</label>
+            <select id="testId" name="testId" class="form-control" required>
+                <option value="" disabled selected>Select a test</option>
+                <% tests.forEach(function(test) { %>
+                    <option value="<%= test.id %>"><%= test.Name %></option>
+                <% }); %>
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">Send Test Requests</button>
     </form>

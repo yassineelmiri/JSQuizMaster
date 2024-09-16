@@ -1,0 +1,64 @@
+<style>
+    body {
+        padding-top: 20px;
+    }
+    .container {
+        max-width: 800px;
+    }
+    table {
+        width: 100%;
+        margin-bottom: 20px;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+    th {
+        background-color: #f4f4f4;
+    }
+    .btn-accept, .btn-reject {
+        padding: 5px 10px;
+        margin: 5px;
+    }
+    .btn-accept {
+        background-color: green;
+        color: white;
+    }
+    .btn-reject {
+        background-color: red;
+        color: white;
+    }
+</style>
+
+<div class="container">
+    <h2>Demandes des étudiants</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Date de demande</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% demandes.forEach(demande => { %>
+                <tr>
+                    <td><%= demande.studentName %></td>
+                    <td><%= demande.requestDate %></td>
+                    <td><%= demande.Accepted === null ? 'En attente' : (demande.Accepted ? 'Acceptée' : 'Rejetée') %></td>
+                    <td>
+                        <form action="/demandes/<%= demande.id %>/accept" method="POST" style="display:inline-block">
+                            <button type="submit" class="btn-accept">Accepter</button>
+                        </form>
+                        <form action="/demandes/<%= demande.id %>/reject" method="POST" style="display:inline-block">
+                            <button type="submit" class="btn-reject">Rejeter</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>

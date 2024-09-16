@@ -1,5 +1,4 @@
-
-z<section class="py-3 py-md-5">
+<section class="py-3 py-md-5">
   <% if(isFormateur){ %>
   <div class="container">
     <div class="row justify-content-center">
@@ -10,8 +9,8 @@ z<section class="py-3 py-md-5">
               <div class="card-body p-4">
                 <div class="row">
                   <div class="col-8">
-                    <h5 class="card-title widget-card-title mb-3">Nomber Class</h5>
-                    <h4 class="card-subtitle text-body-secondary m-0">5</h4>
+                    <h5 class="card-title widget-card-title mb-3">Nombre de Classes</h5>
+                    <h4 class="card-subtitle text-body-secondary m-0"><%= classCount %></h4>
                   </div>
                   <div class="col-4">
                     <div class="d-flex justify-content-end">
@@ -21,28 +20,17 @@ z<section class="py-3 py-md-5">
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-12">
-                    <div class="d-flex align-items-center mt-3">
-                      <span class="lh-1 me-3 bg-danger-subtle text-danger rounded-circle p-1 d-flex align-items-center justify-content-center">
-                        <i class="bi bi-arrow-right-short bsb-rotate-45"></i>
-                      </span>
-                      <div>
-                        <p class="fs-7 mb-0">-9%</p>
-=                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
+          
           <div class="col-12 col-sm-6">
             <div class="card widget-card border-light shadow-sm">
               <div class="card-body p-4">
                 <div class="row">
                   <div class="col-8">
-                    <h5 class="card-title widget-card-title mb-3">Nomber Etudient</h5>
-                    <h4 class="card-subtitle text-body-secondary m-0">21</h4>
+                    <h5 class="card-title widget-card-title mb-3">Nombre d'Étudiants</h5>
+                    <h4 class="card-subtitle text-body-secondary m-0"><%= studentCount %></h4>
                   </div>
                   <div class="col-4">
                     <div class="d-flex justify-content-end">
@@ -52,28 +40,17 @@ z<section class="py-3 py-md-5">
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-12">
-                    <div class="d-flex align-items-center mt-3">
-                      <span class="lh-1 me-3 bg-success-subtle text-success rounded-circle p-1 d-flex align-items-center justify-content-center">
-                        <i class="bi bi-arrow-right-short bsb-rotate-n45"></i>
-                      </span>
-                      <div>
-                        <p class="fs-7 mb-0">+26%</p>
-=                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
+          
           <div class="col-12 col-sm-6">
             <div class="card widget-card border-light shadow-sm">
               <div class="card-body p-4">
                 <div class="row">
                   <div class="col-8">
-                    <h5 class="card-title widget-card-title mb-3">Demande</h5>
-                    <h4 class="card-subtitle text-body-secondary m-0">3</h4>
+                    <h5 class="card-title widget-card-title mb-3">Demandes</h5>
+                    <h4 class="card-subtitle text-body-secondary m-0"><%= demandCount %></h4>
                   </div>
                   <div class="col-4">
                     <div class="d-flex justify-content-end">
@@ -83,29 +60,17 @@ z<section class="py-3 py-md-5">
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-12">
-                    <div class="d-flex align-items-center mt-3">
-                      <span class="lh-1 me-3 bg-success-subtle text-success rounded-circle p-1 d-flex align-items-center justify-content-center">
-                        <i class="bi bi-arrow-right-short bsb-rotate-n45"></i>
-                      </span>
-                      <div>
-                        <p class="fs-7 mb-0">+69%</p>
-                        <p class="fs-7 mb-0 text-secondary">since last week</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
+
           <div class="col-12 col-sm-6">
             <div class="card widget-card border-light shadow-sm">
               <div class="card-body p-4">
                 <div class="row">
                   <div class="col-8">
-                    <h5 class="card-title widget-card-title mb-3">Les Filier</h5>
-                    <h4 class="card-subtitle text-body-secondary m-0">16</h4>
+                    <h5 class="card-title widget-card-title mb-3">Sujets</h5>
+                    <h4 class="card-subtitle text-body-secondary m-0"><%= subjectCount %></h4>
                   </div>
                   <div class="col-4">
                     <div class="d-flex justify-content-end">
@@ -115,22 +80,10 @@ z<section class="py-3 py-md-5">
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-12">
-                    <div class="d-flex align-items-center mt-3">
-                      <span class="lh-1 me-3 bg-danger-subtle text-danger rounded-circle p-1 d-flex align-items-center justify-content-center">
-                        <i class="bi bi-arrow-right-short bsb-rotate-45"></i>
-                      </span>
-                      <div>
-                        <p class="fs-7 mb-0">-21%</p>
-                        <p class="fs-7 mb-0 text-secondary">since last week</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
+          
         </div>
       </div>
     </div>

@@ -70,6 +70,25 @@ module.exports = {
             console.error("Error fetching students:", error);
             res.status(500).json({ message: "An error occurred while fetching students." });
         }
+    },
+    getClassCount: async () => {
+        const [rows] = await db.promise().query('SELECT COUNT(*) AS count FROM Class');
+        return rows[0].count;
+    },
+
+    getStudentCount: async () => {
+        const [rows] = await db.promise().query('SELECT COUNT(*) AS count FROM Student');
+        return rows[0].count;
+    },
+
+    getDemandCount: async () => {
+        const [rows] = await db.promise().query('SELECT COUNT(*) AS count FROM Demand');
+        return rows[0].count;
+    },
+
+    getSubjectCount: async () => {
+        const [rows] = await db.promise().query('SELECT COUNT(*) AS count FROM Subject');
+        return rows[0].count;
     }
 
 };

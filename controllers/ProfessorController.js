@@ -2,6 +2,24 @@ const professor = require("../models/professorModel");
 const student = require("../models/studentModel");
 
 module.exports = {
+    getDashboardStats: async (req, res) => {
+        try {
+            const classCount = await professor.getClassCount();
+            const studentCount = await professor.getStudentCount();
+            const demandCount = await professor.getDemandCount();
+            const subjectCount = await professor.getSubjectCount();
+
+            res.render('Dashboard', {
+                classCount,
+                studentCount,
+                demandCount,
+                subjectCount
+            });
+        } catch (error) {
+            console.error('Error fetching dashboard stats:', error);
+            res.status(500).json({ message: 'An error occurred while fetching dashboard statistics.' });
+        }
+    },
     getAllProfessors: (req, res) => {
         professor.getAllProfessors()
             .then((result) => {

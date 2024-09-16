@@ -11,4 +11,5 @@ router.delete('/professor/:id', professorController.deleteProfessor);
 
 router.get('/assign-quiz',checkRole('Formateur'), professorController.renderAssignTestPage);
 router.post('/professors/assign-test',checkRole('Formateur'), professorController.assignTestToStudents);
+
 module.exports = router;
